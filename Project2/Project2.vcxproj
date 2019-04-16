@@ -117,7 +117,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Character Implementation.cpp" />
+    <ClCompile Include="Enemy Implementation.cpp" />
     <ClCompile Include="Player Implementation.cpp" />
+    <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
