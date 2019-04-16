@@ -47,7 +47,7 @@ char action()
 				"Choose your action: ";
 			cin >> action;
 			if (action == '0')
-				repeat = false;
+				repeat = true;
 			else repeat = false;
 		}
 		else repeat = false;
@@ -58,14 +58,10 @@ char action()
 int main()
 {
 	Player pl("Bob");
-	cout << pl.getHP() << endl;
 	Enemy en("Slime", 1);
 	while (pl.getHP() > 0 && en.getHP() > 0)
 	{
 		pl.setAction(action());
-		cout << "PTSD" << endl;
-		pl.setHP(0);
-		cout << pl.getHP() << endl;
 	}
 	system("pause");
 	return 0;

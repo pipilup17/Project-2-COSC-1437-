@@ -1,5 +1,7 @@
 #include "Player.h"
 #include "string"
+#include "iostream"
+using namespace std;
 
 Player::Player(string n)
 {
@@ -11,6 +13,19 @@ Player::Player(string n)
 void Player::setAction(char ch)
 {
 	action = ch;
+	if (isdigit(action))
+	{
+		int x = action - '0';
+		setDamage(x);
+	}
+	else if (toupper(action) == 'B')
+	{
+		setDamage(0);
+	}
+	else if (toupper(action) == 'C')
+	{
+		setDamage(0);
+	}
 }
 
 char Player::getAction() const
