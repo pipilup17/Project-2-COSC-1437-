@@ -11,8 +11,7 @@ public:
 	Player(string n);
 	void setAction(char);
 	char getAction() const; 
-	// This is for attack
-	void setDamage(int);
+
+	void setDamage(float);
 	float getDamage() const;
-	// This is for defend
 };

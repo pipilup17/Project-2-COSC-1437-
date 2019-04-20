@@ -9,7 +9,8 @@ private:
 	float hp;
 	float mana;
 public:
-	/*Character(string, float, float);*/
+	Character() {};
+	Character(string, float, float);
 	void setName(string);
 	void setHP(float);
 	void setMana(float);
@@ -17,4 +18,4 @@ public:
 	float getHP() const;
 	float getMana() const;
 	virtual void setAction(char) = 0;
-};
+};                                                                                                                                                                                                                                                                                                                                                                                                       

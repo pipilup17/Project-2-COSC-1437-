@@ -3,11 +3,10 @@
 #include "iostream"
 using namespace std;
 
-Player::Player(string n)
+Player::Player(string n):Character(n,20,30)
 {
-	setName(n);
-	setHP(20);
-	setMana(30);
+	action = '/n';
+	damage = 0;
 }
 
 void Player::setAction(char ch)
@@ -17,6 +16,18 @@ void Player::setAction(char ch)
 	{
 		int x = action - '0';
 		setDamage(x);
+		switch (x)
+		{
+		case (1): 
+			cout << getName() << " attack" << endl;
+			break;
+		case (2):
+			cout << getName() << " uses Fireball" << endl;
+			break;
+		case (3): 
+			cout << getName() << " uses Thunder" << endl;
+			break;
+		} //More option below here if needed
 	}
 	else if (toupper(action) == 'B')
 	{
@@ -26,6 +37,7 @@ void Player::setAction(char ch)
 	{
 		setDamage(0);
 	}
+	cout << getName() << "'s Damage in class: " << damage << endl;
 }
 
 char Player::getAction() const
@@ -33,9 +45,9 @@ char Player::getAction() const
 	return action;
 }
 
-void Player::setDamage(int x)
+void Player::setDamage(float x)
 {
-	damage = 5 * x; // This may be for special attack. suppose special attack is lvl 2 or sth (x=2), the damage will be higher.
+	damage = 5 * x;
 }
 
 float Player::getDamage() const

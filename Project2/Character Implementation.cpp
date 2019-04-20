@@ -2,12 +2,12 @@
 
 using namespace std;
 
-//Character::Character(string n, float h, float m)
-//{
-//	name = n;
-//	hp = h;
-//	mana = m;
-//}
+Character::Character(string n, float h, float m)
+{
+	name = n;
+	hp = h;
+	mana = m;
+}
 
 void Character::setName(string n)
 {

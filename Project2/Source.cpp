@@ -61,7 +61,21 @@ int main()
 	Enemy en("Slime", 1);
 	while (pl.getHP() > 0 && en.getHP() > 0)
 	{
+		cout << "Player's hp:" << pl.getHP() << endl;
+		cout << "Monster's hp:" << en.getHP() << endl;
 		pl.setAction(action());
+		en.setAction(en.random());
+		float a = pl.getHP();
+		float b = en.getDamage();
+		//float tempHP = a - b;
+		pl.setHP(a-b);
+		float c = en.getHP();
+		float d = pl.getDamage();
+		//tempHP = c - d;
+		en.setHP(c-d);
+		cout << "Player's hp:" << pl.getHP() << endl;
+		cout << "Monster's hp:" << en.getHP() << endl;
+		cout << endl;
 	}
 	system("pause");
 	return 0;
