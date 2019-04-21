@@ -22,6 +22,10 @@ string Character::getName() const
 void Character::setHP(int h)
 {
 	hp = h;
+	if (h < 0)
+	{
+		hp = 0;
+	}
 }
 
 int Character::getHP() const

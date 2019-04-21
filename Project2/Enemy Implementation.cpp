@@ -26,13 +26,13 @@ void Enemy::setAction(char ch)
 		switch (x)
 		{
 		case (1):
-			cout << getName() << " attack" << endl;
+			cout << getName() << " attacks!" << endl;
 			break;
 		case (2):
-			cout << getName() << " uses Fireball" << endl;
+			cout << getName() << " uses Fireball!" << endl;
 			break;
 		case (3):
-			cout << getName() << " uses Thunder" << endl;
+			cout << getName() << " uses Thunder!" << endl;
 			break;
 		} //More option below here if needed
 	}
@@ -55,22 +55,6 @@ void Enemy::setAction(char ch)
 		// or maybe create a heal function and add the value to HP.
 	}
 }
-
-	/*actEn = ch;
-	if (isdigit(actEn))
-	{
-		int x = actEn - '0';
-		setDamage(x);
-
-	}
-	else if (toupper(actEn) == 'B')
-	{
-		setDamage(0);
-	}
-	else if (toupper(actEn) == 'C')
-	{
-		setDamage(0);
-	}*/
 char Enemy::getAction()
 {
 	return actEn;

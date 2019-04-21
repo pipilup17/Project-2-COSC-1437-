@@ -25,7 +25,7 @@ using namespace std;
 //		outData >> 
 //	}
 //}
-char action()
+char action(Player pl)
 {
 	char action = 'm';
 	bool repeat = true;
@@ -33,21 +33,23 @@ char action()
 	{
 		while (toupper(action) != 'A' && toupper(action) != 'B' && toupper(action) != 'C')
 		{
-			cout << "A. Attack \n"
-				"B. Block \n"
-				"C. Heal \n"
-				"Choose your action: ";
+			cout << "\n||Your hp: " << pl.getHP()<<" ||" << endl;
+			cout << "|| A. Attack  || B. Block\n"
+				"|| C. Heal    || Choose your action: ";
 			cin >> action;
 		}
 		if (action == 'A' || action == 'a')
 		{
-			cout << "\n1. Normal Attack \n"
-				"2. Fireball \n" //or sth
-				"0. Back \n"
-				"Choose your action: ";
+			cout << "\n_________________________" << endl;
+			cout << "\n|| 1. Normal Attack || 2. Fireball\n"
+				"|| 3. Thunder       || 4. Hailstorm\n" //or sth
+				"|| 0. Back          || Choose your action: ";
 			cin >> action;
 			if (action == '0')
+			{
 				repeat = true;
+				cout << "_________________________" << endl;
+			}
 			else repeat = false;
 		}
 		else repeat = false;
@@ -59,29 +61,35 @@ int main()
 {
 	Player pl("Bob");
 	Enemy en("Slime", 1);
+	ifstream inSlime("Slime.txt");
 	while (pl.getHP() > 0 && en.getHP() > 0)
 	{
-		cout << "Player's hp:" << pl.getHP() << endl;
-		cout << "Monster's hp:" << en.getHP() << endl;
-		pl.setAction(action());
+		cout << "_________________________\n" << endl;
+		if (inSlime.is_open())
+			cout << inSlime.rdbuf();
+		cout << en.getName() <<"'s hp:" << en.getHP() << endl;
+		cout << "_________________________" << endl;
+		pl.setAction(action(pl));
 		en.setAction(en.random());
-		//int plHP = pl.getHP();
-		//int enDMG = en.getDamage();
-		//int enHP = en.getHP();
-		//int plDMG = pl.getDamage();
-		//int enBL = en.getBlock()*plDMG;
-		//float plBL = pl.getBlock()*enDMG;
-		//cout << "ADGFASGDDFDG " << pl.getBlock() << endl << endl;
-		////cout << "BLOCK: " << enDMG*
-		////int a = plHP - (enDMG - plBL);
 		int a = pl.getHP() - (en.getDamage() - pl.getBlock()*en.getDamage());
 		pl.setHP(a);
-		
 		int t = en.getHP() - (pl.getDamage() - en.getBlock()*pl.getDamage());
 		en.setHP(t);
-		cout << "Player's hp:" << pl.getHP() << endl;
-		cout << "Monster's hp:" << en.getHP() << endl;
-		cout << endl;
+		for (int i = 0; i < 45; i++)
+			cout << endl;
+	}
+
+	if (pl.getHP() == 0)
+	{
+		cout << "_________________________\n" << endl;
+		cout << "GAME OVER!" << endl;
+		cout << "_________________________\n" << endl;
+	}
+	else if (en.getHP()==0)
+	{
+		cout << "_________________________\n" << endl;
+		cout << "You are victorious!" << endl;
+		cout << "_________________________\n" << endl;
 	}
 	system("pause");
 	return 0;
