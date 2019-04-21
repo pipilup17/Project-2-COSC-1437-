@@ -6,16 +6,19 @@ class Character
 {
 private:
 	string name;
-	float hp;
-	float mana;
+	int hp, mana;
+	float block;
+protected:
 public:
 	Character() {};
-	Character(string, float, float);
+	Character(string, int, int);
 	void setName(string);
-	void setHP(float);
-	void setMana(float);
+	void setHP(int);
+	void setMana(int);
 	string getName() const;
-	float getHP() const;
-	float getMana() const;
+	int getHP() const;
+	int getMana() const;
 	virtual void setAction(char) = 0;
+	void setBlock(float);
+	float getBlock();
 };                                                                                                                                                                                                                                                                                                                                                                                                       

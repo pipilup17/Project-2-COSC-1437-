@@ -2,7 +2,7 @@
 
 using namespace std;
 
-Character::Character(string n, float h, float m)
+Character::Character(string n, int h, int m)
 {
 	name = n;
 	hp = h;
@@ -19,22 +19,32 @@ string Character::getName() const
 	return name;
 }
 
-void Character::setHP(float h)
+void Character::setHP(int h)
 {
 	hp = h;
 }
 
-float Character::getHP() const
+int Character::getHP() const
 {
 	return hp;
 }
 
-void Character::setMana(float m)
+void Character::setMana(int m)
 {
 	mana = m;
 }
 
-float Character::getMana() const
+int Character::getMana() const
 {
 	return mana;
+}
+
+void Character::setBlock(float b)
+{
+	block = b;
+}
+
+float Character::getBlock()
+{
+	return block;
 }

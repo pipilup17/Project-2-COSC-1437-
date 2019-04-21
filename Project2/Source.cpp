@@ -65,14 +65,20 @@ int main()
 		cout << "Monster's hp:" << en.getHP() << endl;
 		pl.setAction(action());
 		en.setAction(en.random());
-		float a = pl.getHP();
-		float b = en.getDamage();
-		//float tempHP = a - b;
-		pl.setHP(a-b);
-		float c = en.getHP();
-		float d = pl.getDamage();
-		//tempHP = c - d;
-		en.setHP(c-d);
+		//int plHP = pl.getHP();
+		//int enDMG = en.getDamage();
+		//int enHP = en.getHP();
+		//int plDMG = pl.getDamage();
+		//int enBL = en.getBlock()*plDMG;
+		//float plBL = pl.getBlock()*enDMG;
+		//cout << "ADGFASGDDFDG " << pl.getBlock() << endl << endl;
+		////cout << "BLOCK: " << enDMG*
+		////int a = plHP - (enDMG - plBL);
+		int a = pl.getHP() - (en.getDamage() - pl.getBlock()*en.getDamage());
+		pl.setHP(a);
+		
+		int t = en.getHP() - (pl.getDamage() - en.getBlock()*pl.getDamage());
+		en.setHP(t);
 		cout << "Player's hp:" << pl.getHP() << endl;
 		cout << "Monster's hp:" << en.getHP() << endl;
 		cout << endl;
