@@ -5,9 +5,9 @@ using namespace std;
 class Player : public Character
 {
 private:
-	int damage;
+	int mana;
 public:
 	Player(string n);
-	void setAction(char);
-	int getDamage() const;
+	//void setAction(char action, string moveName[], float mana[], float dam[]);
+	
 };

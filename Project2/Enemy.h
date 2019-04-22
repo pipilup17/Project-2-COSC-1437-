@@ -5,7 +5,6 @@
 class Enemy : public Character
 {
 private:
-	int damage;
 	int level; //
 	char actEn;
 	char choice[5] = { '1','2','3','B','C', };
@@ -15,9 +14,7 @@ private:
 public:
 	Enemy(string, int);
 	void setLevel(int);
-	void setAction(char act);
+	//void setAction(char ch, string moveName[], float mana[], float dam[]);
 	char getAction();
-	void setDamage(int);
 	char random();
-	int getDamage() const;
 };

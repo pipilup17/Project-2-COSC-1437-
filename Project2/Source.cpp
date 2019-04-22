@@ -4,7 +4,7 @@
 #include "Player.h"
 #include "Enemy.h"
 using namespace std;
-
+void clearScreen();
 //char menu()
 //{
 //	char option;
@@ -31,15 +31,15 @@ char action(Player pl)
 	bool repeat = true;
 	while (repeat == true)
 	{
-		while (toupper(action) != 'A' && toupper(action) != 'B' && toupper(action) != 'C')
+		while (toupper(action) != 'A' && toupper(action) != 'B' && toupper(action) != 'C' && toupper(action) != 'D')
 		{
 			cout << "\n||Your hp: " << pl.getHP()<<" ||" << endl;
 			cout << "|| A. Attack  || B. Block\n"
-				"|| C. Heal    || Choose your action: ";
+				"|| C. Heal    || D. Special             Choose your action: ";
 			cin >> action;
 		}
-		if (action == 'A' || action == 'a')
-		{
+		if (toupper(action) == 'D')
+		{ // Will Improve the menu code later
 			cout << "\n_________________________" << endl;
 			cout << "\n|| 1. Normal Attack || 2. Fireball\n"
 				"|| 3. Thunder       || 4. Hailstorm\n" //or sth
@@ -54,29 +54,43 @@ char action(Player pl)
 		}
 		else repeat = false;
 	}
+	clearScreen();
 	return action;
 }
+
+
 
 int main()
 {
 	Player pl("Bob");
 	Enemy en("Slime", 1);
-	ifstream inSlime("Slime.txt");
+	string moveName[5];
+	float dam[5], mana[5];
+	ifstream inData("Moveset.txt");
+	if (inData.is_open())
+	{
+		string na;
+		float da, ma;
+		int i = 0;
+		while (inData >> moveName[i] >> dam[i] >> mana[i])
+			i++;
+	}
+
+	
 	while (pl.getHP() > 0 && en.getHP() > 0)
 	{
+		ifstream inSlime("Slime.txt");
 		cout << "_________________________\n" << endl;
 		if (inSlime.is_open())
 			cout << inSlime.rdbuf();
 		cout << en.getName() <<"'s hp:" << en.getHP() << endl;
 		cout << "_________________________" << endl;
-		pl.setAction(action(pl));
-		en.setAction(en.random());
+		pl.setAction(action(pl), moveName, mana, dam);
+		en.setAction(en.random(), moveName, mana, dam);
 		int a = pl.getHP() - (en.getDamage() - pl.getBlock()*en.getDamage());
 		pl.setHP(a);
 		int t = en.getHP() - (pl.getDamage() - en.getBlock()*pl.getDamage());
 		en.setHP(t);
-		for (int i = 0; i < 45; i++)
-			cout << endl;
 	}
 
 	if (pl.getHP() == 0)
@@ -93,4 +107,10 @@ int main()
 	}
 	system("pause");
 	return 0;
+}
+
+void clearScreen()
+{
+	for (int i = 0; i < 50; i++)
+		cout << endl;
 }

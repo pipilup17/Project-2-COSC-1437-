@@ -1,0 +1,5 @@
+Fireball 5 3
+Gale 9 7
+Icicle 12 12 
+Thunder 15 20
+Earthquake 25 30

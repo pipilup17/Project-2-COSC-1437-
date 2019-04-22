@@ -5,20 +5,20 @@ using namespace std;
 class Character
 {
 private:
+	int damage, hp;
 	string name;
-	int hp, mana;
 	float block;
 protected:
 public:
 	Character() {};
-	Character(string, int, int);
+	Character(string, int);
 	void setName(string);
-	void setHP(int);
-	void setMana(int);
+	void setHP(int);;
 	string getName() const;
 	int getHP() const;
-	int getMana() const;
-	virtual void setAction(char) = 0;
+	void setAction(char ch, string moveName[], float mana[], float dam[]);
+	//virtual void setAction(char, string moveName[], float mana[], float dam[]) = 0;
 	void setBlock(float);
-	float getBlock();
+	float getBlock() const;
+	int getDamage() const;
 };                                                                                                                                                                                                                                                                                                                                                                                                       

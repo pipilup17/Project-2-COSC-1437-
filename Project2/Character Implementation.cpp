@@ -1,12 +1,12 @@
-#include "Character.h"
 
+#include "Character.h"
+#include "iostream"
 using namespace std;
 
-Character::Character(string n, int h, int m)
+Character::Character(string n, int h)
 {
 	name = n;
 	hp = h;
-	mana = m;
 }
 
 void Character::setName(string n)
@@ -33,22 +33,54 @@ int Character::getHP() const
 	return hp;
 }
 
-void Character::setMana(int m)
-{
-	mana = m;
-}
-
-int Character::getMana() const
-{
-	return mana;
-}
-
 void Character::setBlock(float b)
 {
 	block = b;
 }
 
-float Character::getBlock()
+float Character::getBlock() const
 {
 	return block;
+}
+
+void Character::setAction(char ch, string moveName[], float mana[], float dam[])
+{
+	char action = ch;
+	if (isdigit(action))
+	{
+		int x = action - '0';
+		cout << "_________________________\n" << endl;
+		cout << name << " uses " << moveName[x - 1] << "!" << endl;
+		damage = dam[x - 1];
+		block = 0;
+	}
+	else if (toupper(action) == 'B')
+	{
+		cout << "_________________________\n" << endl;
+		cout << name << " blocks!" << endl;
+		damage = 0;
+		block = 0.75;
+	}
+	else if (toupper(action) == 'C')
+	{
+		cout << "_________________________\n" << endl;
+		cout << name << " heals!" << endl;
+		damage = 0;
+		block = 0;
+		hp = hp + 15;
+		if (hp > 30)
+			hp= 30 ;
+	}
+	else if (toupper(action) == 'A')
+	{
+		cout << "_________________________\n" << endl;
+		cout << name << " attacks!" << endl;
+		damage = 3;
+		block = 0;
+	}
+}
+
+int Character::getDamage() const
+{
+	return damage;
 }

@@ -1,3 +1,4 @@
+
 #include "Enemy.h"
 #include "iostream"
 #include "string"
@@ -15,59 +16,9 @@ void Enemy::setLevel(int lvl)
 
 }
 
-void Enemy::setAction(char ch)
-{
-	char actEn = ch;
-	if (isdigit(actEn))
-	{
-		int x = actEn - '0';
-		setBlock(0);
-		damage = 5 * x; // do a general formula or actually make it different in the conidtions below. May be fun to make it different but idk
-		switch (x)
-		{
-		case (1):
-			cout << getName() << " attacks!" << endl;
-			break;
-		case (2):
-			cout << getName() << " uses Fireball!" << endl;
-			break;
-		case (3):
-			cout << getName() << " uses Thunder!" << endl;
-			break;
-		} //More option below here if needed
-	}
-	else if (toupper(actEn) == 'B')
-	{
-		cout << getName() << " blocks!" << endl;
-		damage = 0;
-		setBlock(0.75);
-	}
-	else if (toupper(actEn) == 'C')
-	{
-		cout << getName() << " heals!" << endl;
-		damage = 0;
-		setBlock(0);
-		setHP(getHP() + 15);
-		if (getHP() > 30) //Maybe create a max HP variable (that can changes with level value in the parameter) so the condition will be dynamic
-		{
-			setHP(30);
-		}
-		// or maybe create a heal function and add the value to HP.
-	}
-}
 char Enemy::getAction()
 {
 	return actEn;
-}
-
-void Enemy::setDamage(int x)
-{
-	damage = 5*x; // This may be for special attack. suppose special attack is lvl 2 or sth (x=2), the damage will be higher.
-}
-
-int  Enemy::getDamage() const
-{
-	return damage;
 }
 
 char Enemy::random()
