@@ -9,5 +9,7 @@ private:
 public:
 	Player(string n);
 	//void setAction(char action, string moveName[], float mana[], float dam[]);
-	
+	void setMana(int);
+	int getMana();
+	void recoverMana();
 };

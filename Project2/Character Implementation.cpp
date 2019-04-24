@@ -43,7 +43,7 @@ float Character::getBlock() const
 	return block;
 }
 
-void Character::setAction(char ch, string moveName[], float mana[], float dam[])
+void Character::setAction(char ch, string moveName[], int mana[], int dam[])
 {
 	char action = ch;
 	if (isdigit(action))
