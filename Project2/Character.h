@@ -5,13 +5,13 @@ using namespace std;
 class Character
 {
 private:
-	int damage, hp;
+	int damage, hp, level;
 	string name;
 	float block;
 protected:
 public:
 	Character() {};
-	Character(string, int);
+	Character(string, int, int);
 	void setName(string);
 	void setHP(int);;
 	string getName() const;

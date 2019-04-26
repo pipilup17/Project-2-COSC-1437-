@@ -1,0 +1,21 @@
+&&&&&&&&&&&&&&&&&/    \&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&/      \&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&/        \&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&/          \&&&&&&&&&&&&&&
+&&&&&&&&&&&&&/            \&&&&&&&&&&&&&
+&&&&&&&&&&&&/              \&&&&&&&&&&&&
+&&&&&&&&&&&/                \&&&&&&&&&&&
+&&&&&&&&&&/                  \&&&&&&&&&&
+&&&&&&&&&/                    \&&&&&&&&&
+&&&&&&&&/                      \&&&&&&&&
+&&&&&&&/                        \&&&&&&&
+&&&&&&/                          \&&&&&&
+&&&&&/                            \&&&&&
+&&&&/                              \&&&&
+&&&/                                \&&&
+&&/                                  \&&
+&/                                    \&
+
+The atmosphere changes as soon as you step foot inside the entrance. A corridor that stretches as far as your eye can see looms over your feeble mind. Light does not exist in this place. You are alone in the neverending darkness.
+
+Despite this, you move on. You are tasked with getting rid of the nest of "bugs", which was the name people call the monster in OOP. As a holy coding knight of the Programming Order, you are to serve C++, and you do not fear to sacrifice yourself to get rid of all these bugs once and for all. Death stalks at every corner, but you are well equipped with the debugging armor to face the bugs. March on! and smite down all of these unholy beings that prevent our kingdom from compiling foward.

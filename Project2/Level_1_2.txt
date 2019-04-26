@@ -1,0 +1,20 @@
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&__________________&&&&&&&&&&&&&&
+&&&&&&&&&&&&&/                  \&&&&&&&&&&&&&
+&&&&&&&&&&&&/    ____________    \&&&&&&&&&&&&
+&&&&&&&&&&&/    /            \    \&&&&&&&&&&&
+&&&&&&&&&&/    /              \    \&&&&&&&&&& 
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|    |                |    |&&&&&&&&&
+&&&&&&&&&|____|                |____|&&&&&&&&&
+
+As you explore the seemingly peaceful wildlife around the mountain, you discover an old stone entrance. You do not know what may lie beyond the etrance. However, the stench of badly written code starts to overwhelm you programmer's sense. This may very well be your last coding journey if you do not focus and steel yourself for the horror you have to face inside.

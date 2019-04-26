@@ -1,0 +1,12 @@
+   &&&&&&&&&&&&&&&&&
+  &&               &&
+ &&  &&&     &&&    &&
+&&  & X &   & X &    &&
+&&   &&&     &&&     &&
+&&                   &&
+&&&&&&&&&&&&&&&&&&&&&&&
+&&&&&&&&&&&&&&&&&&&&&&&   
+
+
+
+You have defeated the vile Questionable One Line Function Slime. The slime is a threat to a normal person, but you are a Holy Coding Knight of the Programming Order. A single scratch from the slime will not stop you and your determination.

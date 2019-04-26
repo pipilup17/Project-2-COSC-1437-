@@ -1,0 +1,19 @@
+     &&&&                    
+  &&&    &&&&             &&&&&
+ &&          &          &&     &
+&&    &&&    &&        &       &&      (<----- Clouds)
+  &&&&&  &&&&&         &&&       &&
+                          &&&&&&&&
+                             /\
+        /\                  /  \
+       /  \    /\          /    \
+      /    \  /  \        /      \
+     /      \/    \      /        \
+    /       /      \    /          \
+   /       /        \  /            \
+  /       /          \/              \
+ /       /           /                \
+/_______/___________/__________________\
+               
+A vast mountain range slowly rise up from the ground as you walk on the beaten path. Here lies an infamous labyrinth which is infested with vile creatures that feast on the flesh of man. Everyone in the C++ kingdom know about this place, yet none dare come close.
+

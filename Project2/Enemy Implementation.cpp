@@ -4,10 +4,9 @@
 #include "string"
 #include "ctime"
 using namespace std;
-Enemy::Enemy(string n, int lvl)
+Enemy::Enemy(string n, int lvl):Character(n,5,lvl)
 {
-	setName(n);
-	setLevel(lvl);
+	actEn = 'N';
 }
 
 void Enemy::setLevel(int lvl)
@@ -21,10 +20,23 @@ char Enemy::getAction()
 	return actEn;
 }
 
-char Enemy::random()
+char Enemy::random(int lvl)
 {
+	int ran = 0;
+	switch (lvl)
+	{
+	case (1): 
+		ran = 3;
+		break;
+	case (2): 
+		ran = 5;
+		break;
+	case (3): 
+		ran = 7;
+		break;
+	}
 	srand(time(0));
-	actEn = choice[rand() % 5];
+	actEn = choice[rand() % ran];
 	return actEn;
 }
 

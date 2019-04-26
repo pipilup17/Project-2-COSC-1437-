@@ -7,10 +7,10 @@ class Enemy : public Character
 private:
 	int level;
 	char actEn;
-	char choice[5] = { '1','2','3','B','C'};
+	char choice[7] = {'A','B','1','2','C','3','4'};
 public:
 	Enemy(string, int);
 	void setLevel(int);
 	char getAction();
-	char random();
+	char random(int);
 };

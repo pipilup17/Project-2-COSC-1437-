@@ -3,10 +3,11 @@
 #include "iostream"
 using namespace std;
 
-Character::Character(string n, int h)
+Character::Character(string n, int h, int lvl)
 {
 	name = n;
-	hp = h;
+	hp = h+5*lvl;
+	level = lvl;
 }
 
 void Character::setName(string n)
@@ -23,9 +24,7 @@ void Character::setHP(int h)
 {
 	hp = h;
 	if (h < 0)
-	{
 		hp = 0;
-	}
 }
 
 int Character::getHP() const

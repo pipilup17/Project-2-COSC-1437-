@@ -1,0 +1,20 @@
+     X X X X X X X X X X X
+    X X X X X X X X X X X X
+   X X X X X X X X X X X X X
+  X X X X X X X X X X X X X X
+ X X X X X X X X X X X X X X X
+ X X X   X   X X X   X   X X X 
+ X X X X   X X X X X   X X X X 
+ X X X   X   X   X   X   X X X 
+ X X X X X X X   X X X X X X X 
+ X X X   X X X X X X X   X X X 
+   X X                   X X 
+   X X   X   X   X   X   X X 
+     X X               X X 
+     X X X X X X X X X X X 
+     X X X X X X X X X X X 
+       X X X X X X X X X 
+         X X X X X X X       
+
+
+You have defeated the Endless Loop Skeleton. The battle is getting harder the more you venture inside. However, you mainted your iron willpower. You have a mission to complete, and nothing will make you go back now. March foward!

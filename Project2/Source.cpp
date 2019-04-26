@@ -6,20 +6,38 @@
 
 using namespace std;
 char action(Player& pl, int mana[]);
-void Battle(Player& pl, Enemy& en, string moveName[], int mana[], int dam[]);
-void victoryLoss(Player& pl, Enemy en);
+void Battle(Player& pl, Enemy& en, string moveName[], int mana[], int dam[], int& lvl);
+void victoryLoss(Player& pl, Enemy& en, int& lvl, bool& repeat);
 void clearScreen();
-//char menu()
-//{
-//	char option;
-//	cout << "A. New Game \n"
-//		"B. Continue \n"
-//		"C. How To Play \n"
-//		"D. Exit \n"
-//		"Option: ";
-//	cin >> option;
-//	return option;
-//}
+void story(int& lvl);
+
+char menu() // return for a possible game mode. If not, change to void
+{
+	char option = 'j';
+	bool repeat = true;
+	while (repeat == true)
+	{
+		option = 'j';
+		cout << "A. New Game \n"
+			//"B. Continue \n"
+			"B. How To Play \n";
+			//"C. Exit \n";
+			
+		while (toupper(option) != 'A' &&toupper(option) != 'B' && toupper(option) != 'C')
+		{
+			cout << "Option: ";
+			cin >> option;
+		}
+		if (toupper(option) == 'B')
+		{
+			cout << "How to play this game: TBD" << endl;
+			repeat = true;
+		}
+		else if (toupper(option) == 'A')
+			repeat = false;
+	}
+	return option;
+}
 //
 //void outPlayerData()
 //{
@@ -29,6 +47,18 @@ void clearScreen();
 //		outData >> 
 //	}
 //}
+
+string newPlayer(int& lvl)
+{
+	string name;
+	clearScreen();
+	cout << "\n_________________________" << endl;
+	cout << "\nPlease enter your name: ";
+	cin >> name;
+	lvl = 1;
+	return name;
+}
+
 char action(Player& pl, int mana[])
 {
 	char action = 'm';
@@ -82,10 +112,9 @@ char action(Player& pl, int mana[])
 
 int main()
 {
-	Player pl("Bob");
-	Enemy en("Slime", 1);
-	string moveName[5];
-	int dam[5], mana[5];
+	string moveName[5], name;
+	int dam[5], mana[5], lvl;
+	bool repeat = true;
 	ifstream inData("Moveset.txt");
 	if (inData.is_open())
 	{
@@ -96,25 +125,54 @@ int main()
 			i++;
 	}
 
-	Battle(pl, en, moveName, dam, mana);
-	victoryLoss(pl, en);
+	menu();
+	name = newPlayer(lvl);
+
+	string monsterName[3] = { "Questionable One Line Function Slime", "Endless Loop Skeleton", "No Semicolon Demon" };
+	while (repeat == true)
+	{
+		story(lvl);
+		clearScreen();
+		Player pl(name, lvl);
+		Enemy en(monsterName[lvl-1], lvl);
+		Battle(pl, en, moveName, dam, mana, lvl);
+		victoryLoss(pl, en, lvl, repeat);
+		if (lvl > 3)
+		{
+			repeat = false;
+		}
+	}
 	system("pause");
 	return 0;
 }
 
-void victoryLoss(Player& pl, Enemy en)
+void victoryLoss(Player& pl, Enemy& en, int& lvl, bool& repeat)
 {
 	if (pl.getHP() == 0)
 	{
+		clearScreen();
 		cout << "_________________________\n" << endl;
 		cout << "GAME OVER!" << endl;
 		cout << "_________________________\n" << endl;
+		repeat = false;
 	}
 	else if (en.getHP() == 0)
 	{
+		clearScreen();
 		cout << "_________________________\n" << endl;
 		cout << "You are victorious!" << endl;
 		cout << "_________________________\n" << endl;
+		lvl++;
+		char choice = 'a';
+		
+		while (toupper(choice) != 'Y' && toupper(choice) != 'N')
+		{
+			cout << "Would you like to continue? Y/N    Enter:";
+			cin >> choice;
+		}
+		if (toupper(choice)=='Y')
+			repeat = true;
+		else repeat = false;
 	}
 }
 
@@ -124,18 +182,18 @@ void clearScreen()
 		cout << endl;
 }
 
-void Battle(Player& pl, Enemy& en, string moveName[], int mana[], int dam[])
+void Battle(Player& pl, Enemy& en, string moveName[], int mana[], int dam[], int& lvl)
 {
 	while (pl.getHP() > 0 && en.getHP() > 0)
 	{
-		ifstream inSlime("Slime.txt");
+		ifstream inEnemy(to_string(lvl) + "Enemy.txt");
 		cout << "_________________________\n" << endl;
-		if (inSlime.is_open())
-			cout << inSlime.rdbuf();
+		if (inEnemy.is_open())
+			cout << inEnemy.rdbuf();
 		cout << en.getName() << "'s hp:" << en.getHP() << endl;
 		cout << "_________________________" << endl;
 		pl.setAction(action(pl, mana), moveName, mana, dam);
-		en.setAction(en.random(), moveName, mana, dam);
+		en.setAction(en.random(lvl), moveName, mana, dam);
 		int a = pl.getHP() - (en.getDamage() - pl.getBlock()*en.getDamage());
 		pl.setHP(a);
 		int t = en.getHP() - (pl.getDamage() - en.getBlock()*pl.getDamage());
@@ -143,5 +201,61 @@ void Battle(Player& pl, Enemy& en, string moveName[], int mana[], int dam[])
 		pl.recoverMana();
 		cout << "_________________________" << endl;
 		cout << "\n" << pl.getName() <<" recovers 3 mana" << endl;
+	}
+}
+
+void story(int& lvl)
+{
+	string a;
+	switch (lvl)
+	{
+	case (1):
+	{
+		for (int i = 1; i < 4; i++)
+		{
+			clearScreen();
+			ifstream inData;
+			inData.open("Level_1_" + to_string(i) + ".txt");
+			if (inData.is_open())
+			{
+				cout << inData.rdbuf();
+				cout << "\nPress any key to continue: ";
+				cin >> a;
+			}
+		}
+		break;
+	}
+	case (2):
+	{
+		for (int i = 1; i < 3; i++)
+		{
+			clearScreen();
+			ifstream inData;
+			inData.open("Level_2_" + to_string(i) + ".txt");
+			if (inData.is_open())
+			{
+				cout << inData.rdbuf();
+				cout << "\nPress any key to continue: ";
+				cin >> a;
+			}
+		}
+		break;
+	}
+	case (3):
+	{
+		for (int i = 1; i < 3; i++)
+		{
+			clearScreen();
+			ifstream inData;
+			inData.open("Level_3_" + to_string(i) + ".txt");
+			if (inData.is_open())
+			{
+				cout << inData.rdbuf();
+				cout << "\nPress any key to continue: ";
+				cin >> a;
+			}
+		}
+		break;
+	}
 	}
 }

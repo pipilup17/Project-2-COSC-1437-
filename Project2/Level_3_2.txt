@@ -1,0 +1,28 @@
+ X                                           X
+ X X                                         X 
+ X X X                                     X X  
+ X X X         X X X X X X X X X           X X 
+ X X X X     X X X X X X X X X X X       X X X 
+ X X X X X X X X X X X X X X X X X X X X X X X 
+ X X X X X X X X X X X X X X X X X X X X X X X  
+         X X X X   X X X X X   X X X X
+         X X X   *   X X X   *   X X X 
+         X X X X   X X   X X   X X X X
+         X X X X X X X   X X X X X X X 
+         X X X   X X X X X X X   X X X 
+           X X                   X X 
+           X X   X X X X X X X   X X
+             X X               X X 
+             X X X X X X X X X X X 
+             X X X X X X X X X X X 
+               X X X X X X X X X 
+                 X X X X X X X 
+                  X X X X X X 
+                   X X X X X
+                    X X X X
+                     X X X 
+                      X X
+                       X                            
+
+
+A No Semicolon Demon appeared. You can feel its evil aura engulfing everything in its vincinity. It is too late to turn back now. Show the demon your holy debugging skill you have honed through the years. For C++!

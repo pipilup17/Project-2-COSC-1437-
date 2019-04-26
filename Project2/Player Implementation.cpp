@@ -4,9 +4,10 @@
 #include "iostream"
 using namespace std;
 
-Player::Player(string n):Character(n,30)
+Player::Player(string n, int lvl):Character(n, 30, lvl)
 {
-	mana = 30;
+	mana = 12 * lvl;
+	maxMana = 12 * lvl;
 }
 
 void Player::setMana(int m)
@@ -22,4 +23,6 @@ int Player::getMana()
 void Player::recoverMana()
 {
 	mana = mana + 3;
+	if (mana > maxMana)
+		mana = maxMana;
 }
