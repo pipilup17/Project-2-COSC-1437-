@@ -6,8 +6,9 @@ using namespace std;
 Character::Character(string n, int h, int lvl)
 {
 	name = n;
-	hp = h+5*lvl;
+	hp = h + 5 * lvl;
 	level = lvl;
+	maxHp = h + 5 * lvl;
 }
 
 void Character::setName(string n)
@@ -66,7 +67,7 @@ void Character::setAction(char ch, string moveName[], int mana[], int dam[])
 		cout << name << " heals!" << endl;
 		damage = 0;
 		block = 0;
-		hp = hp + 15;
+		hp = hp + 0.25*maxHp;
 		if (hp > 30)
 			hp= 30 ;
 	}

@@ -9,11 +9,11 @@ Enemy::Enemy(string n, int lvl):Character(n,5,lvl)
 	actEn = 'N';
 }
 
-void Enemy::setLevel(int lvl)
-{
-	setHP(15+lvl*10);
-
-}
+//void Enemy::setLevel(int lvl)
+//{
+//	setHP(15+lvl*10);
+//
+//}
 
 char Enemy::getAction()
 {
@@ -38,5 +38,13 @@ char Enemy::random(int lvl)
 	srand(time(0));
 	actEn = choice[rand() % ran];
 	return actEn;
+}
+
+Enemy Enemy::operator+(const Enemy& enemy) const
+{
+	Enemy tempEnemy;
+	tempEnemy.hp = hp + enemy.hp;
+	tempEnemy.maxHp = maxHp + enemy.maxHp;
+	return tempEnemy;
 }
 

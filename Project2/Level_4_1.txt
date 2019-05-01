@@ -1,0 +1,28 @@
+								 X                                           X
+								 X X                                         X 
+								 X X X                                     X X  
+								 X X X         X X X X X X X X X           X X 
+								 X X X X     X X X X X X X X X X X       X X X 
+								 X X X X X X X X X X X X X X X X X X X X X X X 
+								 X X X X X X X X X X X X X X X X X X X X X X X  
+								         X X X X   X X X X X   X X X X
+								         X X X   X   X X X   X   X X X 
+								         X X X X   X X   X X   X X X X
+								         X X X X X X X   X X X X X X X 
+								         X X X   X X X X X X X   X X X 
+								           X X                   X X 
+								           X X   X X X X X X X   X X
+								             X X               X X 
+								             X X X X X X X X X X X 
+								             X X X X X X X X X X X 
+								               X X X X X X X X X 
+								                 X X X X X X X 
+								                  X X X X X X 
+ 								                   X X X X X
+								                    X X X X
+								                     X X X 
+								                      X X
+								                       X         
+
+
+You have defeated the No Semicolon Demon. The bugs start to writhe and scream and finally drop dead when the No Semicolon Demon fell. You have finally debugged the nest of badly written code in deep in the mountain of OOP!                

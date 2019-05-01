@@ -1,0 +1,10 @@
+This is a turn-based combat game. You will take turn making one action and the enemy will make one after you. The battle will go until one reaches 0 HP. There are several action you can take in this game.
+A. Attack: Deal 3 damage - Cost 0 mana
+B. Block: Reduce enemy's attack damage by 75% - Cost 0 mana
+C. Heal: Regain 25% of your original hp
+D. Special: Bring you to the special attack panel
+1. Fireball: Deal 5 damage - Cost 3 mana
+2. Gale: Deal 9 damage - Cost 7 mana
+3. Icicle: Deal 12 damage - Cost 12 mana
+4. Thunder: Deal 15 damage - cost 20 mana
+5. Earthquake: Deal 25 damage - cost 30 mana
