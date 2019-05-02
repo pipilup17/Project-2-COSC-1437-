@@ -68,7 +68,6 @@ void compare(string name[])
 	}
 	Enemy en1(name[m1 - 1], m1);
 	Enemy en2(name[m2 - 1], m2);
-	cout << en1.getLevel() << " DFGFD " << en2.getLevel() << endl;
 	if (en1 < en2)
 		cout << en1.getName() << " is weaker than " << en2.getName() << endl;
 	else if (en2 < en1)
