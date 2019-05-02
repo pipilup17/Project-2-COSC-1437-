@@ -7,6 +7,7 @@ using namespace std;
 Enemy::Enemy(string n, int lvl):Character(n,5,lvl)
 {
 	actEn = 'N';
+	level = lvl;
 }
 
 //void Enemy::setLevel(int lvl)
@@ -32,7 +33,7 @@ char Enemy::random(int lvl)
 		ran = 5;
 		break;
 	case (3): 
-		ran = 7;
+		ran = 6;
 		break;
 	}
 	srand(time(0));
@@ -40,11 +41,8 @@ char Enemy::random(int lvl)
 	return actEn;
 }
 
-Enemy Enemy::operator+(const Enemy& enemy) const
+bool operator<(const Enemy& En1, const Enemy& En2)
 {
-	Enemy tempEnemy;
-	tempEnemy.hp = hp + enemy.hp;
-	tempEnemy.maxHp = maxHp + enemy.maxHp;
-	return tempEnemy;
+	return (En1.level < En2.level);
 }
 

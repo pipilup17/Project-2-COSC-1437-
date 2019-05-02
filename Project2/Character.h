@@ -19,6 +19,10 @@ public:
 	void setBlock(float);
 	float getBlock() const;
 	int getDamage() const;
+	int getLevel()
+	{
+		return level;
+	}
 	virtual void recoverMana() {};
 	virtual char random(int a) { return 0; }
 	virtual int getMana() { return 0; }

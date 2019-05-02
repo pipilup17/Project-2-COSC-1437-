@@ -12,8 +12,9 @@ void clearScreen();
 void story(int& lvl);
 void displayStory(int& lvl, string& a, int& j);
 void How_to_play();
+void compare(string name[]);
 
-char menu() // return for a possible game mode. If not, change to void
+char menu(string name[]) 
 {
 	char option = 'j';
 	bool repeat = true;
@@ -22,11 +23,9 @@ char menu() // return for a possible game mode. If not, change to void
 		cout << "_________________________\n" << endl;
 		option = 'j';
 		cout << "A. New Game \n"
-			//"B. Continue \n"
-			"B. How To Play \n";
-			//"C. Exit \n";
-			
-		while (toupper(option) != 'A' &&toupper(option) != 'B' && toupper(option) != 'C')
+			"B. How To Play \n"
+			"C. Compare Enemy Power \n";
+		while (toupper(option) != 'A' &&toupper(option) != 'B' && toupper(option) != 'C'&& toupper(option) != 'D')
 		{
 			cout << "Option: ";
 			cin >> option;
@@ -38,18 +37,42 @@ char menu() // return for a possible game mode. If not, change to void
 		}
 		else if (toupper(option) == 'A')
 			repeat = false;
+		else if (toupper(option) == 'C')
+		{
+			compare(name);
+			repeat == true;
+		}
+			
 	}
 	return option;
 }
 
-//void outPlayerData(Character *pl)
-//{
-//	ofstream outData("Player.dat");
-//	if (outData.is_open())
-//	{
-//		outData >> 
-//	}
-//}
+void compare(string name[])
+{
+	bool repeat = true;
+	int m1 = 0, m2 = 0;
+	cout << "_________________________\n" << endl;
+	cout << "Choose two monster to compare\n"
+		"1. Slime\n"
+		"2. Skeleton\n"
+		"3. Demon\n";
+	while (m1 < 1 || m1 > 3 || m2 < 1 || m2 > 3)
+	{
+		cout << "Monster #1: ";
+		cin >> m1;
+	
+
+		cout << "Monster #2: ";
+		cin >> m2;
+	}
+	Enemy en1(name[m1 - 1], m1);
+	Enemy en2(name[m2 - 1], m2);
+	cout << en1.getLevel() << " DFGFD " << en2.getLevel() << endl;
+	if (en1 < en2)
+		cout << en1.getName() << " is weaker than " << en2.getName() << endl;
+	else if (en2<en1)
+		cout << en2.getName() << " is weaker than " << en1.getName() << endl;
+}
 
 string newPlayer(int& lvl)
 {
@@ -111,8 +134,6 @@ char action(Character *pl, int mana[])
 	return action;
 }
 
-
-
 int main()
 {
 	string moveName[5], name;
@@ -129,10 +150,8 @@ int main()
 			i++;
 	}
 
-	menu();
+	menu(monsterName);
 	name = newPlayer(lvl);
-
-	
 	while (repeat == true)
 	{
 		story(lvl);
@@ -146,6 +165,7 @@ int main()
 		}
 	}
 	story(lvl);
+	inData.close();
 	system("pause");
 	return 0;
 }
@@ -188,10 +208,10 @@ void clearScreen()
 
 void Battle(Character *pl, Character *en, string moveName[], int mana[], int dam[], int& lvl)
 {
+	ifstream inEnemy;
 	while (pl->getHP() > 0 && en->getHP() > 0)
 	{
-
-		ifstream inEnemy(to_string(lvl) + "Enemy.txt");
+		inEnemy.open(to_string(lvl) + "Enemy.txt");
 		cout << "_________________________\n" << endl;
 		if (inEnemy.is_open())
 			cout << inEnemy.rdbuf();
@@ -207,6 +227,7 @@ void Battle(Character *pl, Character *en, string moveName[], int mana[], int dam
 		cout << "_________________________" << endl;
 		cout << "\n" << pl->getName() <<" recovers 3 mana" << endl;
 	}
+	inEnemy.close();
 }
 
 void story(int& lvl)
@@ -244,10 +265,10 @@ void story(int& lvl)
 
 void displayStory(int& lvl, string& a, int& j)
 {
+	ifstream inData;
 	for (int i = 1; i < j + 1; i++)
 	{
 		clearScreen();
-		ifstream inData;
 		inData.open("Level_"+ to_string(lvl) + "_" + to_string(i) + ".txt");
 		if (inData.is_open())
 		{
@@ -256,6 +277,7 @@ void displayStory(int& lvl, string& a, int& j)
 			cin >> a;
 		}
 	}
+	inData.close();
 }
 
 void How_to_play()
@@ -267,4 +289,5 @@ void How_to_play()
 	{
 		cout << inData.rdbuf() <<endl;
 	}
+	inData.close();
 }
