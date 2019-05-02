@@ -4,7 +4,7 @@
 #include "string"
 #include "ctime"
 using namespace std;
-Enemy::Enemy(string n, int lvl):Character(n,5,lvl)
+Enemy::Enemy(string n, int lvl):Character(n,30,lvl)
 {
 	actEn = 'N';
 	level = lvl;
