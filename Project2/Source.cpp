@@ -1,3 +1,4 @@
+
 #include "iostream"
 #include "fstream"
 #include "string"
@@ -14,7 +15,7 @@ void displayStory(int& lvl, string& a, int& j);
 void How_to_play();
 void compare(string name[]);
 
-char menu(string name[]) 
+char menu(string name[])
 {
 	char option = 'j';
 	bool repeat = true;
@@ -42,7 +43,7 @@ char menu(string name[])
 			compare(name);
 			repeat == true;
 		}
-			
+
 	}
 	return option;
 }
@@ -60,7 +61,7 @@ void compare(string name[])
 	{
 		cout << "Monster #1: ";
 		cin >> m1;
-	
+
 
 		cout << "Monster #2: ";
 		cin >> m2;
@@ -70,7 +71,7 @@ void compare(string name[])
 	cout << en1.getLevel() << " DFGFD " << en2.getLevel() << endl;
 	if (en1 < en2)
 		cout << en1.getName() << " is weaker than " << en2.getName() << endl;
-	else if (en2<en1)
+	else if (en2 < en1)
 		cout << en2.getName() << " is weaker than " << en1.getName() << endl;
 }
 
@@ -93,7 +94,7 @@ char action(Character *pl, int mana[])
 	{
 		while (toupper(action) != 'A' && toupper(action) != 'B' && toupper(action) != 'C' && toupper(action) != 'D')
 		{
-			cout << "\n||Your hp: " << pl->getHP()<<" ||" << " Your mana: "<< pl->getMana() << endl;
+			cout << "\n||Your hp: " << pl->getHP() << " ||" << " Your mana: " << pl->getMana() << endl;
 			cout << "|| A. Attack  || B. Block\n"
 				"|| C. Heal    || D. Special             Choose your action: ";
 			cin >> action;
@@ -101,7 +102,7 @@ char action(Character *pl, int mana[])
 		if (toupper(action) == 'D')
 		{
 			int x = 6;
-			while (x>5)
+			while (x > 5)
 			{
 				cout << "\n_________________________" << endl;
 				cout << "\n|| 1. Fireball || 2. Gale\n"
@@ -134,6 +135,8 @@ char action(Character *pl, int mana[])
 	return action;
 }
 
+
+
 int main()
 {
 	string moveName[5], name;
@@ -149,14 +152,13 @@ int main()
 		while (inData >> moveName[i] >> dam[i] >> mana[i])
 			i++;
 	}
-
 	menu(monsterName);
 	name = newPlayer(lvl);
 	while (repeat == true)
 	{
 		story(lvl);
 		clearScreen();
-		Character *ch[2] = { new Player(name, lvl), new Enemy(monsterName[lvl - 1],lvl)};
+		Character *ch[2] = { new Player(name, lvl), new Enemy(monsterName[lvl - 1],lvl) };
 		Battle(ch[0], ch[1], moveName, dam, mana, lvl);
 		victoryLoss(ch[0], ch[1], lvl, repeat);
 		if (lvl > 3)
@@ -165,7 +167,6 @@ int main()
 		}
 	}
 	story(lvl);
-	inData.close();
 	system("pause");
 	return 0;
 }
@@ -188,13 +189,13 @@ void victoryLoss(Character* pl, Character* en, int& lvl, bool& repeat)
 		cout << "_________________________\n" << endl;
 		lvl++;
 		char choice = 'a';
-		
+
 		while (toupper(choice) != 'Y' && toupper(choice) != 'N')
 		{
 			cout << "Would you like to continue? Y/N    Enter:";
 			cin >> choice;
 		}
-		if (toupper(choice)=='Y')
+		if (toupper(choice) == 'Y')
 			repeat = true;
 		else repeat = false;
 	}
@@ -208,10 +209,9 @@ void clearScreen()
 
 void Battle(Character *pl, Character *en, string moveName[], int mana[], int dam[], int& lvl)
 {
-	ifstream inEnemy;
 	while (pl->getHP() > 0 && en->getHP() > 0)
 	{
-		inEnemy.open(to_string(lvl) + "Enemy.txt");
+		ifstream inEnemy(to_string(lvl) + "Enemy.txt");
 		cout << "_________________________\n" << endl;
 		if (inEnemy.is_open())
 			cout << inEnemy.rdbuf();
@@ -225,9 +225,8 @@ void Battle(Character *pl, Character *en, string moveName[], int mana[], int dam
 		en->setHP(t);
 		pl->recoverMana();
 		cout << "_________________________" << endl;
-		cout << "\n" << pl->getName() <<" recovers 3 mana" << endl;
+		cout << "\n" << pl->getName() << " recovers 3 mana" << endl;
 	}
-	inEnemy.close();
 }
 
 void story(int& lvl)
@@ -265,11 +264,11 @@ void story(int& lvl)
 
 void displayStory(int& lvl, string& a, int& j)
 {
-	ifstream inData;
 	for (int i = 1; i < j + 1; i++)
 	{
 		clearScreen();
-		inData.open("Level_"+ to_string(lvl) + "_" + to_string(i) + ".txt");
+		ifstream inData;
+		inData.open("Level_" + to_string(lvl) + "_" + to_string(i) + ".txt");
 		if (inData.is_open())
 		{
 			cout << inData.rdbuf();
@@ -277,7 +276,6 @@ void displayStory(int& lvl, string& a, int& j)
 			cin >> a;
 		}
 	}
-	inData.close();
 }
 
 void How_to_play()
@@ -287,7 +285,6 @@ void How_to_play()
 	cout << "_________________________\n" << endl;
 	if (inData.is_open())
 	{
-		cout << inData.rdbuf() <<endl;
+		cout << inData.rdbuf() << endl;
 	}
-	inData.close();
 }

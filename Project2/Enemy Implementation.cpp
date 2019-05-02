@@ -10,12 +10,6 @@ Enemy::Enemy(string n, int lvl):Character(n,5,lvl)
 	level = lvl;
 }
 
-//void Enemy::setLevel(int lvl)
-//{
-//	setHP(15+lvl*10);
-//
-//}
-
 char Enemy::getAction()
 {
 	return actEn;
