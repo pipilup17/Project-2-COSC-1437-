@@ -21,6 +21,7 @@ char menu(string name[])
 	bool repeat = true;
 	while (repeat == true)
 	{
+		
 		cout << "_________________________\n" << endl;
 		option = 'j';
 		cout << "A. New Game \n"
@@ -72,6 +73,9 @@ void compare(string name[])
 		cout << en1.getName() << " is weaker than " << en2.getName() << endl;
 	else if (en2 < en1)
 		cout << en2.getName() << " is weaker than " << en1.getName() << endl;
+	cout << "Enter any key to continue: ";
+	getchar();
+	clearScreen();
 }
 
 string newPlayer(int& lvl)
@@ -151,6 +155,10 @@ int main()
 		while (inData >> moveName[i] >> dam[i] >> mana[i])
 			i++;
 	}
+	cout << "_______________________________________________\n" << endl;
+	cout << "MAXIMIZE THE SCREEN FOR THE BEST EXPERIENCE.\n";
+	getchar();
+	clearScreen();
 	menu(monsterName);
 	name = newPlayer(lvl);
 	while (repeat == true)
