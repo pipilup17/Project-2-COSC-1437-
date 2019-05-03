@@ -168,12 +168,14 @@ int main()
 		Character *ch[2] = { new Player(name, lvl), new Enemy(monsterName[lvl - 1],lvl) };
 		Battle(ch[0], ch[1], moveName, dam, mana, lvl);
 		victoryLoss(ch[0], ch[1], lvl, repeat);
+		
 		if (lvl > 3)
 		{
 			repeat = false;
+			story(lvl);
 		}
 	}
-	story(lvl);
+	
 	system("pause");
 	return 0;
 }
